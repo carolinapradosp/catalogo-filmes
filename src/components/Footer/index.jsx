@@ -1,4 +1,4 @@
-import './Footer.module.css'
+import style from './Footer.module.css'
 import { useTranslation } from 'react-i18next';
 
 
@@ -7,7 +7,7 @@ export default function Footer() {
 
     return(
         <footer>
-            <p>{t("footer")}</p>
+            <p className={style.text}>{t("footer")}</p>
         </footer> 
     )
 }
