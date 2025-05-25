@@ -1,0 +1,45 @@
+{
+  "searchPlaceholder": "Pesquise por título",
+  "inicio": "Início",
+  "about": {
+    "aboutTitle": "Sobre",
+    "aboutSubtitle": "o projeto",
+    "content": "<p>Este projeto é uma aplicação web desenvolvida em React que consome dados da OMDb API para exibir informações sobre filmes.</p><p> A plataforma apresenta uma interface moderna e responsiva, com foco em experiência do usuário e boas práticas de SEO.</p><p> O usuário pode navegar pelos cards dos filmes, visualizar detalhes completos de cada título e explorar opções futuras como \"Gêneros\", \"Favoritos\" e \"Lançamentos\".</p><p> A arquitetura do projeto foi pensada para ser escalável, utilizando componentização, rotas dinâmicas e integração com APIs externas.</p>"
+  },
+  "banner": {
+    "resultsFor": "Resultados para:",
+    "checkFoundMovies": "Confira os filmes encontrados",
+    "aria": "Destaque principal"
+  },
+  "cards": {
+    "ariaLabel": "Sessão de cards",
+    "posterAlt": "Poster do filme",
+    "year": "Ano",
+    "writer": "Roteirista",
+    "language": "Idioma",
+    "country": "País",
+    "noResults": "Não encontramos seu filme, verifique se você digitou o título corretamente",
+    "loading": "Carregando filmes..."
+  },
+  "detail": {
+    "loading": "Carregando...",
+    "posterAlt": "Poster de",
+    "title": "Título",
+    "year": "Ano",
+    "writer": "Roteirista",
+    "language": "Idioma",
+    "country": "País",
+    "genre": "Gênero",
+    "director": "Diretor",
+    "plot": "Sinopse"
+  },
+  "homeTitle": "Bem-vindo ao catálogo de filmes",
+  "homeSubtitle": "Explore os melhores títulos do cinema",
+  "footer": "© 2025 Carolina Prado. Todos os direitos reservados.",
+  "notfound": {
+  "subtitle": "Página não encontrada",
+  "message": "Desculpe, a página que você está procurando não existe.",
+  "suggestion": "Verifique o URL ou volte para a",
+  "homeLink": "página inicial."
+}
+}

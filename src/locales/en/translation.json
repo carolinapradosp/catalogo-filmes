@@ -1,0 +1,45 @@
+{
+  "searchPlaceholder": "Search by title",
+  "inicio": "Home",
+  "about": {
+    "aboutTitle": "About",
+    "aboutSubtitle": "this project",
+    "content": "<p>This project is a web application developed in React that consumes data from the OMDb API to display information about movies.</p><p>The platform features a modern and responsive interface, focusing on user experience and SEO best practices.</p><p>Users can browse movie cards, view full details of each title, and explore future features such as \"Genres\", \"Favorites\", and \"Releases\".</p><p>The project architecture was designed to be scalable, using componentization, dynamic routing, and integration with external APIs.</p>"
+  },
+  "banner": {
+    "resultsFor": "Results for:",
+    "checkFoundMovies": "Check out the movies found",
+    "aria": "Main highlight"
+  },
+  "cards": {
+    "ariaLabel": "Cards section",
+    "posterAlt": "Movie poster",
+    "year": "Year",
+    "writer": "Writer",
+    "language": "Language",
+    "country": "Country",
+    "noResults": "We couldn’t find your movie. Please check the title and try again.",
+    "loading": "Loading movies..."
+  },
+  "detail": {
+    "loading": "Loading...",
+    "posterAlt": "Poster of",
+    "title": "Title",
+    "year": "Year",
+    "writer": "Writer",
+    "language": "Language",
+    "country": "Country",
+    "genre": "Genre",
+    "director": "Director",
+    "plot": "Synopsis"
+  },
+  "homeTitle": "Welcome to the movie catalog",
+  "homeSubtitle": "Explore the best titles in cinema",
+  "footer": "© 2025 Carolina Prado. All rights reserved.",
+  "notfound": {
+  "subtitle": "Page not found",
+  "message": "Sorry, the page you are looking for does not exist.",
+  "suggestion": "Check the URL or go back to the",
+  "homeLink": "home page."
+}
+}

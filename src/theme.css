@@ -1,0 +1,29 @@
+.container{
+	max-width: 1920px;
+	margin: 0 auto;
+}
+
+header, footer{
+	padding: 0 9.25rem;
+}
+
+@media (max-width: 1279px) {
+	header, footer{
+		padding: 0 2rem;
+	}
+}
+
+main{
+	padding: 4rem 9.25rem;
+}
+
+main p{
+	color: #fff;
+	font-weight: 300;
+}
+
+@media (max-width:992px) {	
+	main{
+		padding: 2rem;
+	}
+}

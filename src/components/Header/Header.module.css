@@ -1,0 +1,191 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  display: block;
+  background-color: #fff000;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #000;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  opacity: 0.9;
+}
+
+input {
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  width: 200px;
+  background-color: transparent;
+  color: #fff;
+  filter: grayscale(100%);
+  width: 100%;
+}
+
+button{
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form{
+  border-bottom: 1px solid #fff;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+select{
+  border: 1px solid #7a7a7a;
+  background-color: #000;
+  color: #fff;
+  padding: 8px 0 8px 32px;
+  width: 135px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+option{
+  font-weight: 500;
+}
+
+.idioma{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+li svg{
+  position: absolute;
+  margin-left: 8px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 1rem;
+}
+
+.logo {
+  z-index: 2;
+}
+
+.menuToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  z-index: 3;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .menuToggle {
+    display: block;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #111;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
+    z-index: 1;
+  }
+  
+  .menu.ativo {
+    display: flex;
+  }
+  
+  .menu form {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 1rem;
+  }
+  
+  .menu input {
+    flex: 1;
+    width: 100%;
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .menu ul li a {
+    display: block;
+    background-color: #fff000;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #000;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .idioma {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .idioma select {
+    width: 100%;
+  }
+  
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #111;
+    z-index: 1;
+  }
+
+   nav{
+    padding: 0 !important;
+  }
+}

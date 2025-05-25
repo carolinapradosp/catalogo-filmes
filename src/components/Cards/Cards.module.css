@@ -1,0 +1,55 @@
+.containerCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 4rem 9.25rem;
+}
+
+.card {
+  border: 1px solid #4e4e4e;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.infoCard{
+  padding: 1rem;
+}
+
+.card h3 {
+  font-weight: 900;
+}
+
+.card p{
+  font-weight: 300;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  color: #fff;
+}
+
+@media (max-width: 1279px) {
+  .containerCards{
+    padding: 4rem 2rem;
+  }
+  
+}
