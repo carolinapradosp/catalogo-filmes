@@ -7,10 +7,12 @@ import NotFound from './pages/NotFound/NotFound';
 import Footer from './components/Footer';
 import About from './pages/About/About';
 import HomePage from './pages/HomePage/HomePage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className='container'>
         <Header />
         <Routes>
