@@ -1,5 +1,5 @@
 .text{
-  color: #a1a1a1;
+  color: var(--lightGray);
   text-align: left;
   font-size: 0.9rem;
 }

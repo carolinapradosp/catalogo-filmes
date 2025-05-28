@@ -1,5 +1,5 @@
 header{
-  background-color: #000;
+  background-color: var(--black);
 }
 nav {
   display: flex;
@@ -16,11 +16,11 @@ nav ul {
 
 nav ul li a {
   display: block;
-  background-color: #fff000;
+  background-color: var(--yellow);
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 4px;
-  color: #000;
+  color: var(--black);
   font-weight: 500;
   transition: background-color 0.3s;
 }
@@ -35,7 +35,7 @@ input {
   border-radius: 4px;
   width: 200px;
   background-color: transparent;
-  color: #fff;
+  color: var(--white);
   filter: grayscale(100%);
   width: 100%;
 }
@@ -49,7 +49,7 @@ button{
 }
 
 form{
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--white);
   width: 300px;
   display: flex;
   justify-content: space-between;
@@ -62,9 +62,9 @@ input:focus-visible {
 }
 
 select{
-  border: 1px solid #7a7a7a;
-  background-color: #000;
-  color: #fff;
+  border: 1px solid var(--lightGray);
+  background-color: var(--black);
+  color: var(--white);
   padding: 8px 0 8px 32px;
   width: 135px;
   font-weight: 500;
@@ -127,7 +127,7 @@ li svg{
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #111;
+    background-color: var(--lightBlack);
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
@@ -143,7 +143,7 @@ li svg{
     width: 100%;
     display: flex;
     gap: 0.5rem;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--white);
     margin-bottom: 1rem;
   }
   
@@ -164,10 +164,10 @@ li svg{
   
   .menu ul li a {
     display: block;
-    background-color: #fff000;
+    background-color: var(--yellow);
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    color: #000;
+    color: var(--black);
     text-align: center;
     font-weight: 500;
   }
@@ -189,7 +189,7 @@ li svg{
     left: 0;
     height: 100vh;
     width: 100vw;
-    background-color: #111;
+    background-color: var(--lightBlack);
     z-index: 1;
   }
 
