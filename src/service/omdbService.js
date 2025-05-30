@@ -14,7 +14,7 @@ export async function fetchMovie({ searchTerm, title, imdbID }) {
     return null;
   }
 
-  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&${query}`);
+  const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&${query}&plot=full`);
   const data = await response.json();
   return data?.Response === 'True' ? data : null;
 }

@@ -4,25 +4,28 @@ import Banner from '../../components/Banner';
 import NotFound from '../NotFound/NotFound';
 import { useTranslation } from 'react-i18next';
 import style from './Detail.module.css'; 
+import { fetchMovie } from '../../service/omdbService';
 
 export default function Detail() {
-  const { id } = useParams();
+  const { id } = useParams(); 
   const [filme, setFilme] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const { t } = useTranslation();
 
   useEffect(() => {
-    const apiKey = '1e5700a2';
     const buscarFilme = async () => {
+      setCarregando(true);
       try {
-        const resposta = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}&plot=full`);
-        const dados = await resposta.json();
+        const dados = await fetchMovie({ imdbID: id });
 
-        if (dados.Response === 'True') {
+        if (dados?.Response !== 'False') {
           setFilme(dados);
+        } else {
+          setFilme(null);
         }
       } catch (erro) {
         console.error('Erro ao buscar filme:', erro);
+        setFilme(null);
       } finally {
         setCarregando(false);
       }
