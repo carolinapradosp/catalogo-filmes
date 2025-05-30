@@ -8,55 +8,55 @@ import { fetchMovie } from '../../service/omdbService';
 
 export default function Detail() {
   const { id } = useParams(); 
-  const [filme, setFilme] = useState(null);
-  const [carregando, setCarregando] = useState(true);
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
 
   useEffect(() => {
     const buscarFilme = async () => {
-      setCarregando(true);
+      setLoading(true);
       try {
         const dados = await fetchMovie({ imdbID: id });
 
         if (dados?.Response !== 'False') {
-          setFilme(dados);
+          setMovie(dados);
         } else {
-          setFilme(null);
+          setMovie(null);
         }
       } catch (erro) {
         console.error('Erro ao buscar filme:', erro);
-        setFilme(null);
+        setMovie(null);
       } finally {
-        setCarregando(false);
+        setLoading(false);
       }
     };
 
     buscarFilme();
   }, [id]);
 
-  if (carregando) return <p>{t("detail.loading")}</p>;
-  if (!filme) return <NotFound />;
+  if (loading) return <p>{t("detail.loading")}</p>;
+  if (!movie) return <NotFound />;
 
   return (
     <>
-      <Banner titulo={filme.Title} />
+      <Banner titulo={movie.Title} />
       <main className={style.detalhe}>
         <div>
           <img
-            src={filme.Poster}
-            alt={`${t("detail.posterAlt")} ${filme.Title}`}
+            src={movie.Poster}
+            alt={`${t("detail.posterAlt")} ${movie.Title}`}
             style={{ maxWidth: '300px' }}
           />
         </div>
         <div>
-          <p><strong>{t("detail.title")}:</strong> {filme.Title}</p>
-          <p><strong>{t("detail.year")}:</strong> {filme.Year}</p>
-          <p><strong>{t("detail.writer")}:</strong> {filme.Writer}</p>
-          <p><strong>{t("detail.language")}:</strong> {filme.Language}</p>
-          <p><strong>{t("detail.country")}:</strong> {filme.Country}</p>
-          <p><strong>{t("detail.genre")}:</strong> {filme.Genre}</p>
-          <p><strong>{t("detail.director")}:</strong> {filme.Director}</p>
-          <p><strong>{t("detail.plot")}:</strong> {filme.Plot}</p>
+          <p><strong>{t("detail.title")}:</strong> {movie.Title}</p>
+          <p><strong>{t("detail.year")}:</strong> {movie.Year}</p>
+          <p><strong>{t("detail.writer")}:</strong> {movie.Writer}</p>
+          <p><strong>{t("detail.language")}:</strong> {movie.Language}</p>
+          <p><strong>{t("detail.country")}:</strong> {movie.Country}</p>
+          <p><strong>{t("detail.genre")}:</strong> {movie.Genre}</p>
+          <p><strong>{t("detail.director")}:</strong> {movie.Director}</p>
+          <p><strong>{t("detail.plot")}:</strong> {movie.Plot}</p>
         </div>
       </main>
     </>
