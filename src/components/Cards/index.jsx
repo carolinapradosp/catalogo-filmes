@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import style from './Cards.module.css';
 import { useTranslation } from 'react-i18next';
+import { fetchMovie } from '../../service/omdbService'; 
 
 const DEFAULT_TITLES = [
   'Inception', 'Matrix', 'Interstellar', 'Avatar', 'Titanic',
@@ -11,54 +12,53 @@ const DEFAULT_TITLES = [
 
 export default function Cards() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get('search');
   const { t } = useTranslation();
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const apiKey = '1e5700a2';
+    const fetchData = async () => {
+      setLoading(true);
 
-      if (searchTerm) {
-        try {
-          const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(searchTerm)}`);
-          const data = await response.json();
+      try {
+        if (searchTerm) {
+          const searchResult = await fetchMovie({ searchTerm });
 
-          if (data.Response === 'True') {
-            const detailedResults = await Promise.all(
-              data.Search.map(async (movie) => {
-                const detailResponse = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`);
-                return detailResponse.json();
-              })
+          if (searchResult?.Search) {
+            const details = await Promise.all(
+              searchResult.Search.map(({ imdbID }) =>
+                fetchMovie({ imdbID })
+              )
             );
-            setMovies(detailedResults.filter(movie => movie?.Response === 'True'));
+            setMovies(details.filter(Boolean));
           } else {
             setMovies([]);
           }
-        } catch (error) {
-          console.error('Erro na pesquisa:', error);
-          setMovies([]);
+        } else {
+          const defaultMovies = await Promise.all(
+            DEFAULT_TITLES.map(title => fetchMovie({ title }))
+          );
+          setMovies(defaultMovies.filter(Boolean));
         }
-      } else {
-        const results = await Promise.all(
-          DEFAULT_TITLES.map(async (title) => {
-            const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}`);
-            const data = await response.json();
-            return data?.Response === 'True' ? data : null;
-          })
-        );
-        setMovies(results.filter(Boolean));
+      } catch (error) {
+        console.error('Erro ao buscar filmes:', error);
+        setMovies([]);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchMovies();
+    fetchData();
   }, [searchTerm]);
 
   return (
     <section className={style.containerCards} aria-label={t("cards.ariaLabel")}>
-      {movies.length > 0 ? (
-        movies.map((movie, index) => (
-          <Link to={`/filme/${movie.imdbID}`} key={index} className={style.card}>
+      {loading ? (
+        <p>{t("cards.loading")}</p>
+      ) : movies.length > 0 ? (
+        movies.map(movie => (
+          <Link to={`/filme/${movie.imdbID}`} key={movie.imdbID} className={style.card}>
             <img src={movie.Poster} alt={`${t("cards.posterAlt")} ${movie.Title}`} />
             <div className={style.infoCard}>
               <h3>{movie.Title}</h3>
@@ -69,10 +69,8 @@ export default function Cards() {
             </div>
           </Link>
         ))
-      ) : searchTerm ? (
-        <p className={style.noResults}>{t("cards.noResults")}</p>
       ) : (
-        <p>{t("cards.loading")}</p>
+        <p className={style.noResults}>{t("cards.noResults")}</p>
       )}
     </section>
   );
